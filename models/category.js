@@ -13,7 +13,7 @@ Category.init(
         autoIncrement: true,
         allowNull: false
     },
-    category_name {
+    category_name: {
         type: DataTypes.TEXT,
         allowNull: false
     }
