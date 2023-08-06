@@ -1,5 +1,8 @@
+//imports
+
 const { Category } = require('../models');
 
+// seeding the DB
 const categoryData = [
   {
     category_name: 'Shirts',

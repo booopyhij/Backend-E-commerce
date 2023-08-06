@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
-
+//Class the contains the will allow the DB to create and house different categories
 class Category extends Model {}
 
 Category.init(

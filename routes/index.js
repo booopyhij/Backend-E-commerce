@@ -1,3 +1,5 @@
+// this file handles all the imports and exports of the enire folder
+
 const router = require('express').Router();
 const apiRoutes = require('./api');
 
