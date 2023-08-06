@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
+      if (req.body.tagIds && req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
@@ -87,7 +87,8 @@ router.put('/:id', (req, res) => {
         
         ProductTag.findAll({
           where: { product_id: req.params.id }
-        }).then((productTags) => {
+        })
+        .then((productTags) => {
           // create filtered list of new tag_ids
           const productTagIds = productTags.map(({ tag_id }) => tag_id);
           const newProductTags = req.body.tagIds
@@ -121,6 +122,19 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  Product.destroy({
+    where: {
+        id: req.params.id,
+    },
+  })
+  .then((category) => { 
+    console.log(products);
+    res.status(200).json(category);
+})
+  .catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
+    });
 });
 
 module.exports = router;
