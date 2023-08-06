@@ -1,3 +1,6 @@
+// this file runs the server
+
+//imports
 const express = require('express');
 const routes = require('./routes');
 // import sequelize connection

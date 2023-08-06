@@ -1,5 +1,7 @@
+// imports
 const { Product } = require('../models');
 
+// seed data
 const productData = [
   {
     product_name: 'Plain T-Shirt',

@@ -18,10 +18,9 @@ router.get('/', (req, res) => {
     console.log(err);
      res.status(500).json(err);
     });
-  // be sure to include its associated Category and Tag data
 });
 
-// get one product
+// get one product by it's id
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   Product.findOne({
@@ -39,10 +38,9 @@ router.get('/:id', (req, res) => {
     console.log(err);
      res.status(400).json(err);
     });
-  // be sure to include its associated Category and Tag data
 });
 
-// create new product
+// create new product with an example
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
@@ -115,7 +113,7 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
